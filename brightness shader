@@ -1,0 +1,74 @@
+<jittershader name="edgedetect">
+	<description>
+	A 3x3 edge detection filter
+	</description>
+	<param name="level" type="float" default="0.25" />
+	<language name="glsl" version="1.0">
+		<bind param="level" program="edgedetect" />
+		<program name="basic" type="vertex">
+<![CDATA[
+varying vec2 texcoord0;
+
+void main( void )
+{
+	gl_Position = gl_ModelViewProjectionMatrix * gl_Vertex;
+	texcoord0 = vec2(gl_TextureMatrix[0] * gl_MultiTexCoord0);
+}
+
+]]>
+</program>
+		<program name="edgedetect" type="fragment">
+<![CDATA[
+///////////////////////////////////////////////////////////////////////////////
+//
+// Copyright 2003, ATI Technologies, Inc., All rights reserved.
+//
+// Permission to use, copy, modify, and distribute this software and its
+// documentation for any purpose and without fee is hereby granted,
+// provided that the above copyright notice appear in all copies and derivative
+// works and that both the copyright notice and this permission notice appear in
+// support documentation, and that the name of ATI Technologies, Inc. not be used
+// in advertising or publicity pertaining to distribution of the software without
+// specific, written prior permission.
+//
+///////////////////////////////////////////////////////////////////////////////
+
+// vertex to fragment shader io
+varying vec2 texcoord0;
+
+// globals
+
+uniform float level;
+
+// samplers
+uniform sampler2DRect image;
+
+// getGrey function
+float
+getGrey(vec4 c)
+{
+    vec4 onethird;
+    vec4 cc;
+    float sum;
+    onethird = vec4 (0.333333,0.333333,0.333333,0);
+    cc = c;
+    sum = dot(onethird, cc);
+    return sum;
+}
+
+// entry point
+void
+main()
+{
+
+	vec3 col = texture2DRect(image, texcoord0).rgb;
+
+	col = col + level;
+
+
+    gl_FragColor = vec4 (col, 1.0);
+}
+]]>
+		</program>
+	</language>
+</jittershader>

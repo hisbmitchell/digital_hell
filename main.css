@@ -1,0 +1,55 @@
+html {
+ margin: 0;
+ height: 100%;
+ width: 100%;
+ padding: 0;
+}
+
+body {
+ margin: 0;
+ height: 100%;
+ width: 100%;
+ padding: 0;
+ overflow: auto;
+ scrollbar-width: none;
+ background-color: black;
+
+
+
+}
+
+div {
+  display: block;
+  margin: auto;
+  width: 100%;
+  position: absolute;
+  top: 50%;
+ left: 50%;
+  -ms-transform: translate(-50%, -50%);
+ transform: translate(-50%, -50%);
+
+}
+
+p {
+  font-family: 'Inconsolata', ;
+  color: red;
+  margin:auto;
+  text-align: center;
+  padding-bottom: 30%;
+
+}
+
+a {
+  color: red;
+  text-align: center;
+}
+
+a:hover {
+  color: red;
+}
+
+img {
+  margin:auto;
+  text-align: center;
+
+}
