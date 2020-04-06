@@ -7,11 +7,11 @@ html {
  width: 100%;
  padding: 0;
 
- background: url(forest2.jpg) no-repeat center center fixed;
+/*  background: url(forest2.jpg) no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
-  background-size: cover;
+  background-size: cover; */
 }
 
 body {
@@ -21,7 +21,7 @@ body {
  padding: 0;
  overflow: auto;
  scrollbar-width: none;
- background-color: none;
+ background-color: black;
 }
 
 div {
@@ -39,7 +39,7 @@ div {
 
 p {
   font-size: 150%;
-  color: red;
+  color: Blue;
   margin:auto;
   text-align: center;
   padding-top: 10%;
